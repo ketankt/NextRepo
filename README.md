@@ -1,3 +1,3 @@
 # NextRepo
 last repo
-nexxt commit
+next commit
