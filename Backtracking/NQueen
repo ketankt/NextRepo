@@ -1,0 +1,115 @@
+//Question:
+/* The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other.
+Given an integer n, return all distinct solutions to the n-queens puzzle. You may return the answer in any order.
+Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate
+ a queen and an empty space, respectively.
+ */
+
+/*Input: 4
+Output: [
+ [".Q..",  // Solution 1
+  "...Q",
+  "Q...",
+  "..Q."],
+
+ ["..Q.",  // Solution 2
+  "Q...",
+  "...Q",
+  ".Q.."]
+]
+Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above.
+*/
+
+//code in c++
+
+
+class Solution {
+public:
+
+    int board[11][11];
+    vector<vector<string>> ans;
+
+    void result(int n)
+    {
+        vector<string> t;
+
+        for(int i=0;i<n;i++)
+        {
+            string s="";
+            for(int j=0;j<n;j++)
+            {
+                if(board[i][j])
+                {
+                    s+='Q';
+                }else
+                    s+='.';
+            }
+            // cout<<s<<endl;
+           t.push_back(s);
+        }
+         ans.push_back(t);
+    }
+
+
+    bool isSafe(int row,int col,int n)
+    {
+        for(int i=0;i<n;i++)
+        {
+            if(board[row][i])
+                return false;
+        }
+
+        for(int i=0;i<n;i++)
+        {
+            if(board[i][col])
+                return false;
+        }
+
+        //diagonal check
+        for(int p=0;p<n;p++)
+        {
+            for(int q=0;q<n;q++)
+            {
+                if(p+q==row+col && board[p][q])
+                {
+                    return false;
+                }
+                if(p-q==row-col && board[p][q])
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    void nqueen(int col,int n)
+    {
+        if(col>=n)
+        {
+            result(n);
+            return;
+        }
+
+        for(int i=0;i<n;i++)
+        {
+            if(isSafe(i,col,n))
+            {
+                board[i][col]=1;
+
+                nqueen(col+1,n);
+
+		//backtracking
+                board[i][col]=0;
+
+            }
+        }
+        return;
+    }
+    vector<vector<string>> solveNQueens(int n) {
+        memset(board,0,sizeof board);
+        ans.clear();
+        nqueen(0,n);
+        return ans;
+    }
+};
