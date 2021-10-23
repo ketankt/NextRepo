@@ -1,0 +1,25 @@
+Analysis for N Queen Problem
+Space complexity
+
+For this algorithm it is O(N). The algorithm uses an auxiliary array of length N to store just N positions.
+
+Time complexity
+
+The isSafe method takes O(N) time as it iterates through our array every time.
+For each invocation of the placeQueen method, there is a loop which runs for O(N) time.
+In each iteration of this loop, there is isSafe invocation which is O(N) and a recursive call with a smaller argument.
+If we add all this up and define the run time as T(N). Then T(N) = O(N2) + N*T(N-1).
+If you draw a recursion tree using this recurrence, the final term will be something like n3+ n!O(1).
+By the definition of Big O, this can be reduced to O(n!) running time.
+
+Let me know in comments if you are not able to derive the n! from the recurrence, I will try to draw the recursion tree.
+
+Summary
+Most of the time problems of backtracking can be easily identified by the following features:
+
+It will have a lot of solutions
+You will get some intuition that not all solutions will solve the problem and you might have to go back and change something
+As each step, you have to verify the integrity of the solution. Like if it is safe to move etc
+Based on the future steps, the present choice is considered a valid choice or not.
+No need to worry about the backtracking part, the recursion stack takes care of it.
+Problems like Knights Tour, Sudoku, Robots path in a grid are all of same kind.
