@@ -1,3 +1,4 @@
+General Understanding Document For Recursive Entitled Nqueen Distributing Unique Game
 Analysis for N Queen Problem
 Space complexity
 
@@ -15,11 +16,15 @@ By the definition of Big O, this can be reduced to O(n!) running time.
 Let me know in comments if you are not able to derive the n! from the recurrence, I will try to draw the recursion tree.
 
 Summary
-Most of the time problems of backtracking can be easily identified by the following features:
+Generally problems of backtracking can be easily identified by the following features:
+Understand it will have a lot of solutions
+Decide that not all solutions will solve the problem and you might have to go back and change something
 
-It will have a lot of solutions
-You will get some intuition that not all solutions will solve the problem and you might have to go back and change something
-As each step, you have to verify the integrity of the solution. Like if it is safe to move etc
-Based on the future steps, the present choice is considered a valid choice or not.
+First at each step, you have to verify the integrity of the solution. Like if it is safe to move etc
+Recursive approach is used to take a step and simplify the problem
+Every future step is used to check if the present choice is considered a valid choice or not.
 No need to worry about the backtracking part, the recursion stack takes care of it.
-Problems like Knights Tour, Sudoku, Robots path in a grid are all of same kind.
+
+Distribution of solution can be formed by a recursion tree
+Under each parent node the child nodes are possible solution from parent arrangement
+Game ends when you find out the message.
