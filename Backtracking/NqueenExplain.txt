@@ -13,7 +13,6 @@ If we add all this up and define the run time as T(N). Then T(N) = O(N2) + N*T(N
 If you draw a recursion tree using this recurrence, the final term will be something like n3+ n!O(1).
 By the definition of Big O, this can be reduced to O(n!) running time.
 
-Let me know in comments if you are not able to derive the n! from the recurrence, I will try to draw the recursion tree.
 
 Summary
 Generally problems of backtracking can be easily identified by the following features:
